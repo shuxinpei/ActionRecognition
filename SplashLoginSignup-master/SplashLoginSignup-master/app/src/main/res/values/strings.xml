@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">JpetStore</string>
+
+    <!--Titles-->
+    <string name="login_title">登录</string>
+    <string name="signup_title">注册</string>
+
+    <!--Welcome messages-->
+    <string name="splash_welcome_txt">Fitness\n做你的健身伴侣</string>
+    <string name="login_welcome_txt">Hello !\n欢迎回来</string>
+    <string name="signup_welcome_txt">Hello there !\n欢迎</string>
+
+
+    <!--Button labels-->
+    <string name="login_btn_label">登录</string>
+    <string name="signup_btn_label">注册</string>
+
+    <string name="login_label">" 登录"</string>
+    <string name="signup_label">" 注册"</string>
+
+    <string name="login_fb_btn_label">"{faw-facebook-f}    Login with Facebook"</string>
+    <string name="signup_fb_btn_label">"{faw-facebook-f}    Signup with Facebook"</string>
+
+    <string name="get_started_btn_label">开始使用</string>
+
+    <!--Edit Text hints-->
+    <string name="email_address_hint">账号</string>
+    <string name="full_name_hint">名字</string>
+    <string name="password_hint">密码</string>
+    <string name="repeatpassword_hint">重复密码</string>
+
+    <!--Misc texts-->
+    <string name="forgot_password">忘记密码了？</string>
+    <string name="no_account">没有账号？</string>
+    <string name="have_account">拥有账号了吗？</string>
+    <string name="divider_or">OR</string>
+    <string name="login">登录</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+</resources>
