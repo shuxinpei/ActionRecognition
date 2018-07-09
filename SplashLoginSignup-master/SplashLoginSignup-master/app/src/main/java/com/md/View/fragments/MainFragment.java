@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.md.splashloginsignup.R;
 
@@ -33,6 +34,9 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView FreeActionText;
+    private TextView SpecifyActionText;
 
     private OnFragmentInteractionListener mListener;
 
@@ -73,8 +77,22 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        content_ch = (FrameLayout)rootView.findViewById(R.id.content_ch);
+        content_ch = (FrameLayout)rootView.findViewById(R.id.content);
         fm = getChildFragmentManager();
+        FreeActionText = (TextView)rootView.findViewById(R.id.FreeAction);
+        SpecifyActionText = (TextView)rootView.findViewById(R.id.SpecifyAction);
+        FreeActionText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("被点击了");
+            }
+        });
+        SpecifyActionText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("被点击了");
+            }
+        });
         return rootView;
 
     }
