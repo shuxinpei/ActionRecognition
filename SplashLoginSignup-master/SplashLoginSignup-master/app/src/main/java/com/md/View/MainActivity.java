@@ -93,21 +93,6 @@ public class MainActivity extends AppCompatActivity implements FreeActionFragmen
         mMViewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager()));
     }
 
-  /*  public void  bodydatast(){
-        FragmentTransaction bt = fm.beginTransaction();
-        bt.replace(R.id.content, new Fragment());
-        bt.commit();
-    }
-    public void history(){
-        FragmentTransaction bt = fm.beginTransaction();
-        bt.replace(R.id.content, new Fragment());
-        bt.commit();
-    }
-    public void count(){
-        FragmentTransaction bt = fm.beginTransaction();
-        bt.replace(R.id.content, new Fragment());
-        bt.commit();
-    }*/
     public void logout(){
         startActivity(new Intent(this, SplashActivity.class));
     }
@@ -115,20 +100,6 @@ public class MainActivity extends AppCompatActivity implements FreeActionFragmen
     @Override
     public void onFragmentInteraction(Uri uri) {
 
-    }
-    //改变样式
-    private void changeTabStyle(Fragment tabFragment) {
-        if (tabFragment instanceof FreeActionFragment) {
-            FreeAction.setTextColor(Color.parseColor("#45C01A"));
-        }
-        if (tabFragment instanceof SpecifyActionFragment) {
-            SpecifyAction.setTextColor(Color.parseColor("#45C01A"));
-        }
-    }
-    //清除样式
-    private void clearSeleted() {
-         FreeAction.setTextColor(Color.parseColor("#999999"));
-         SpecifyAction.setTextColor(Color.parseColor("#999999"));
     }
     //进行类的管理
     class MyFragmentAdapter extends FragmentPagerAdapter {
@@ -140,8 +111,6 @@ public class MainActivity extends AppCompatActivity implements FreeActionFragmen
         @Override
         public Fragment getItem(int position) {
             Fragment f =  mFragments.get(position);
-            clearSeleted();
-            changeTabStyle(f);
             return f;
         }
 //可以考虑将最上面的东西直接加在conten里面，设置好样式
