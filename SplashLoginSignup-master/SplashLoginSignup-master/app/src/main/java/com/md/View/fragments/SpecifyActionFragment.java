@@ -1,6 +1,7 @@
 package com.md.View.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.md.View.ArmActivity;
+import com.md.View.HipActivity;
+import com.md.View.SplashActivity;
 import com.md.View.ViewComponent.StartActionButton;
 import com.md.splashloginsignup.R;
 
@@ -36,7 +40,7 @@ public class SpecifyActionFragment extends Fragment {
     private LinearLayout leg_layout;
     private LinearLayout shoulders_layout;
     private LinearLayout abdomen_layout;
-
+    private View  rootView;
     private OnFragmentInteractionListener mListener;
 
     public SpecifyActionFragment() {
@@ -74,7 +78,7 @@ public class SpecifyActionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View  rootView =  inflater.inflate(R.layout.fragment_specify_action, container, false);
+        rootView =  inflater.inflate(R.layout.fragment_specify_action, container, false);
         arm_layout = rootView.findViewById(R.id.arm_layout);
         back_layout = rootView.findViewById(R.id.back_layout);
         chest_layout = rootView.findViewById(R.id.chest_layout);
@@ -82,6 +86,14 @@ public class SpecifyActionFragment extends Fragment {
         leg_layout = rootView.findViewById(R.id.leg_layout);
         shoulders_layout = rootView.findViewById(R.id.shoulders_layout);
         abdomen_layout = rootView.findViewById(R.id.abdomen_layout);
+        arm_layout.setOnClickListener(new layoutONclickListener());
+        back_layout.setOnClickListener(new layoutONclickListener());
+        chest_layout.setOnClickListener(new layoutONclickListener());
+        hip_layout.setOnClickListener(new layoutONclickListener());
+        leg_layout.setOnClickListener(new layoutONclickListener());
+        shoulders_layout.setOnClickListener(new layoutONclickListener());
+        abdomen_layout.setOnClickListener(new layoutONclickListener());
+
         return rootView;
     }
 
@@ -128,18 +140,19 @@ public class SpecifyActionFragment extends Fragment {
         public void onClick(View view) {
                 if(view == arm_layout){
                 //跳转
+                    startActivity(new Intent(rootView.getContext(), ArmActivity.class));
                 }else if(view == back_layout){
-
+                    startActivity(new Intent(rootView.getContext(), ArmActivity.class));
                 }else if(view == chest_layout){
-
+                    startActivity(new Intent(rootView.getContext(), ArmActivity.class));
                 }else if(view == hip_layout){
-
+                    startActivity(new Intent(rootView.getContext(), HipActivity.class));
                 }else if(view == leg_layout){
-
+                    startActivity(new Intent(rootView.getContext(), HipActivity.class));
                 }else if(view == abdomen_layout){
-
+                    startActivity(new Intent(rootView.getContext(), HipActivity.class));
                 }else if(view == shoulders_layout){
-
+                    startActivity(new Intent(rootView.getContext(), ArmActivity.class));
                 }
         }
     }

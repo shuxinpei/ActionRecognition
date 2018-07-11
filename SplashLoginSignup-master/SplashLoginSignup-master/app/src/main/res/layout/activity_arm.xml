@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.md.View.ArmActivity">
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/orange"
+        >
+
+        <ImageView
+            android:id="@+id/leftmenu"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:src="@drawable/menu" />
+
+        <TextView
+            android:textColor="@color/edit_text_bg"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Fitness" />
+    </RelativeLayout><!--标签栏Fitness-->
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/arm1_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="102dp"
+                    android:src="@drawable/shena" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="俯卧撑"
+                    android:layout_weight="1"
+                    android:textSize="13sp" />
+                <Button
+                    android:id="@+id/shena"
+                    android:layout_width="77dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/spbtncolor"
+                    android:text="开始运动" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/arm2_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="102dp"
+                    android:src="@drawable/juanfu" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="卷腹兼手臂锻炼"
+                    android:layout_weight="1"
+                    android:textSize="13sp" />
+                <Button
+                    android:id="@+id/juanfu"
+                    android:layout_width="77dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/spbtncolor"
+                    android:text="开始运动" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/arm3_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="102dp"
+                    android:src="@drawable/baoshoujuanfu" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="腹部兼手臂锻炼"
+                    android:layout_weight="1"
+                    android:textSize="13sp" />
+                <Button
+                    android:id="@+id/baoshoujuanfu"
+                    android:layout_width="77dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/spbtncolor"
+                    android:text="开始运动" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/arm4_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="102dp"
+                    android:src="@drawable/baoxi" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="抱膝锻炼"
+                    android:layout_weight="1"
+                    android:textSize="13sp" />
+                <Button
+                    android:id="@+id/baoxi"
+                    android:layout_width="77dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/spbtncolor"
+                    android:text="开始运动" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

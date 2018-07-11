@@ -20,7 +20,10 @@
         <activity
             android:name="com.md.View.MainActivity"
             android:label="@string/title_activity_main" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name="com.md.View.SpecifyActionActivity" />
+        <activity android:name="com.md.View.ArmActivity" />
+        <activity android:name="com.md.View.HipActivity"></activity>
     </application>
 
 </manifest>

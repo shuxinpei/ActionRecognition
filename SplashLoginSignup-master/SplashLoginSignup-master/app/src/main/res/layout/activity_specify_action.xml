@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.md.View.SpecifyActionActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/orange"
+        >
+
+        <ImageView
+            android:id="@+id/leftmenu"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:src="@drawable/menu" />
+
+        <TextView
+            android:textColor="@color/edit_text_bg"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Fitness" />
+    </RelativeLayout><!--标签栏Fitness-->
+
+</android.support.constraint.ConstraintLayout>
