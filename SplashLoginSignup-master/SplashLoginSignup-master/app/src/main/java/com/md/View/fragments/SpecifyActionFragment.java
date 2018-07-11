@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.md.View.ViewComponent.StartActionButton;
 import com.md.splashloginsignup.R;
 
 /**
@@ -23,10 +25,17 @@ public class SpecifyActionFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private LinearLayout arm_layout;
+    private LinearLayout back_layout;
+    private LinearLayout chest_layout;
+    private LinearLayout hip_layout;
+    private LinearLayout leg_layout;
+    private LinearLayout shoulders_layout;
+    private LinearLayout abdomen_layout;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +74,15 @@ public class SpecifyActionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_specify_action, container, false);
+        View  rootView =  inflater.inflate(R.layout.fragment_specify_action, container, false);
+        arm_layout = rootView.findViewById(R.id.arm_layout);
+        back_layout = rootView.findViewById(R.id.back_layout);
+        chest_layout = rootView.findViewById(R.id.chest_layout);
+        hip_layout = rootView.findViewById(R.id.hip_layout);
+        leg_layout = rootView.findViewById(R.id.leg_layout);
+        shoulders_layout = rootView.findViewById(R.id.shoulders_layout);
+        abdomen_layout = rootView.findViewById(R.id.abdomen_layout);
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,5 +122,25 @@ public class SpecifyActionFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    class layoutONclickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View view) {
+                if(view == arm_layout){
+                //跳转
+                }else if(view == back_layout){
+
+                }else if(view == chest_layout){
+
+                }else if(view == hip_layout){
+
+                }else if(view == leg_layout){
+
+                }else if(view == abdomen_layout){
+
+                }else if(view == shoulders_layout){
+
+                }
+        }
     }
 }

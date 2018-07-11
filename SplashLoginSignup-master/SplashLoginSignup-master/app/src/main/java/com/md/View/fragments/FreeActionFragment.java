@@ -12,10 +12,14 @@ import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.md.View.ViewComponent.StartActionButton;
 import com.md.splashloginsignup.R;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
+
+import Util.SensorUtil;
 
 import static android.graphics.Color.rgb;
 
@@ -33,8 +37,8 @@ public class FreeActionFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button startAction;
-    private Button title_manage;
+    private StartActionButton mStartActionButton;
+    private int count = 1;
     private ListView lv;
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -85,20 +89,33 @@ public class FreeActionFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_free_action, container, false);
-        startAction = (Button) rootView.findViewById(R.id.startAction);
-        startAction.setOnClickListener(new startActionBtnListener());
-        title_manage =(Button) rootView.findViewById(R.id.title_manage);
+        mStartActionButton = (StartActionButton) rootView.findViewById(R.id.startAction);
+        mStartActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (count % 2 == 0)
+                    mStartActionButton.reset();
+                else
+                    mStartActionButton.startAnimation();
+                count++;
+            }
+        });
         lv = (ListView) rootView.findViewById(R.id.lv);
         //title_manage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         //title_manage.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
         adapter = new FreeActionListViewAdapter(FreeActionFragment.this.getContext());
         // listview绑定adapter适配器
         lv.setAdapter(adapter);
-
+        initListView();
         return rootView;
     }
-
-    // TODO: Rename method, update argument and hook method into UI event
+    /** 添加item */
+    public void initListView() {
+        Map sensorMap = SensorUtil.getSensorSatus();
+        adapter.addData(sensorMap);
+        adapter.notifyDataSetChanged();
+    }
+        // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -135,30 +152,5 @@ public class FreeActionFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-    //改变样式的监听器
-    public class startActionBtnListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            try{
-                if (view == startAction) {
-                    if(!boStart){
-                        LStartTime = System.currentTimeMillis();
-                        startAction.setText("结束运动");
-                        startAction.setBackgroundColor(rgb(152,251,152));
-                        boStart= true;
-                    } else if (boStart) {//暂停运动
-                        boStart =false;
-                        LEndTime = System.currentTimeMillis();
-                        LAllTime = LStartTime -LEndTime;
-                        startAction.setText("开始运动");
-                        startAction.setBackgroundColor(rgb(255,69,0));
-                        //这边需要再调用服务器端代码，回传结果
-                        System.out.println(LAllTime+"总运动时间");
-                    }
-                }
-            }catch (Exception ex){
-                ex.printStackTrace();
-            }
-        }
-    }
+
 }

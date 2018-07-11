@@ -15,7 +15,9 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/title_bar"
         android:layout_marginBottom="-540dp"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="0dp"
+        android:weightSum="5"
+        >
 
         <!-- tab的分割线 -->
         <ImageView
@@ -24,7 +26,6 @@
             android:layout_height="1dp"
             android:layout_below="@+id/tabLayout"
             android:background="#B6B6B6" />
-
         <!-- tab的两个按钮 -->
         <LinearLayout
             android:id="@+id/tabLayout"
@@ -33,7 +34,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <!-- 微信按钮 -->
             <!-- 使用FrameLayout，最主要的原因是使用它可以很容易的再添加一个消息提醒的小图片 -->
@@ -74,11 +76,134 @@
                     android:textSize="13sp" />
             </FrameLayout>
         </LinearLayout>
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tabTop"
+            >
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical" >
+                    <LinearLayout
+                    android:id="@+id/shoulders_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                        <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/shoulders" />
+                        <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="肩部锻炼"
+                        android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/arm_layout"
+                        android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/arm" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="手臂锻炼"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                    <LinearLayout
+                    android:id="@+id/back_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/back" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="背部锻炼"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/chest_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/chest" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="胸部锻炼"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/abdomen_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/abdomen" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="腹部锻炼"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/leg_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/leg" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="腿部锻炼"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/hip_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/hip" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="臀部锻炼"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
-
-    <!-- TODO: Update blank fragment layout -->
-
-
 </FrameLayout>

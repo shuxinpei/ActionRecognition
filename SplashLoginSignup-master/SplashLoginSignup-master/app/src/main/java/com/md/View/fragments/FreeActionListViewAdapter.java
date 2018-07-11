@@ -10,6 +10,7 @@ import com.md.splashloginsignup.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class FreeActionListViewAdapter extends BaseAdapter {
     private Context context;
@@ -23,6 +24,16 @@ public class FreeActionListViewAdapter extends BaseAdapter {
     public void addData(String text) {
         if (datas != null)
             datas.add(text);// 添加数据
+    }
+
+    public void addData(Map items) {
+        for(Object item : items.keySet()){
+            String key =(String) item;
+            String data = (String) items.get(key);
+            if (datas != null)
+                datas.add(key+"        "+data);// 添加数据
+        }
+
     }
 
     /** 移除item数据 */
