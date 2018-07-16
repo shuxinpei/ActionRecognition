@@ -23,7 +23,8 @@
         <activity android:name=".Main2Activity" />
         <activity android:name="com.md.View.SpecifyActionActivity" />
         <activity android:name="com.md.View.ArmActivity" />
-        <activity android:name="com.md.View.HipActivity"></activity>
+        <activity android:name="com.md.View.HipActivity" />
+        <activity android:name="com.md.View.StartSpecifyActionActivity"></activity>
     </application>
 
 </manifest>

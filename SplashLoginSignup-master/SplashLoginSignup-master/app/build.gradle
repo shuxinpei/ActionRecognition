@@ -34,4 +34,5 @@ dependencies {
     implementation 'com.mikepenz:fontawesome-typeface:5.0.6.0@aar'
     implementation 'com.google.android:flexbox:1.0.0'
     implementation files('libs/nineoldandroids-2.4.0.jar')
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.14'
 }
