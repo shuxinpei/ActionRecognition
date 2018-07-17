@@ -21,14 +21,15 @@ public class HipActivity extends AppCompatActivity {
         tuishangdeng = (Button) findViewById(R.id.tuishangdeng);
         juanfu = (Button) findViewById(R.id.juanfu);
         baoxi = (Button) findViewById(R.id.baoxi);
+        xiadun.setOnClickListener(new ActionOnClickListener());
     }
     class ActionOnClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent();
-            intent.setClass(,StartSpecifyActionActivity.class);
+            Intent intent = new Intent(HipActivity.this,StartSpecifyActionActivity.class);
             if(view == xiadun){
-
+                intent.putExtra("fragment","xiadun");
+                startActivity(intent);
             }else if (view == tuishangdeng){
 
             }else if (view == juanfu){
@@ -36,6 +37,7 @@ public class HipActivity extends AppCompatActivity {
             }else if (view == baoxi){
 
             }
+
         }
     }
 }

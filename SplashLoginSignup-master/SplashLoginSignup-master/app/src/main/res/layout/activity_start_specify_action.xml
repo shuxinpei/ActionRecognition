@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.md.View.StartSpecifyActionActivity">
+
+
     <RelativeLayout
         android:id="@+id/fragment_layout"
         android:layout_width="match_parent"
@@ -16,16 +18,13 @@
             android:layout_height="48dp"
             android:background="@color/orange"
             >
-
             <ImageView
                 android:id="@+id/leftmenu"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:padding="12dp"
                 android:src="@drawable/menu" />
-
             <TextView
-                android:id="@+id/title"
                 android:textColor="@color/edit_text_bg"
                 android:fontFamily="@font/sf_pro_display_medium"
                 android:layout_width="wrap_content"
@@ -35,40 +34,37 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="Fitness" />
-
         </RelativeLayout><!--标签栏Fitness-->
-
-        <!--中间空白-->
+        <FrameLayout
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="590dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="0dp"
+            android:background="#FFFFFF"></FrameLayout><!--中间空白-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="122dp"
-            android:layout_below="@+id/content"
+            android:layout_below="@+id/blank"
             android:layout_marginTop="-50dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
             <Button
+                android:id="@+id/start"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="开始运动" />
 
             <Button
+                android:id="@+id/Watchdata"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="查看数据" />
         </LinearLayout>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="46dp"
-            android:background="#FFFFFF"></android.support.v4.view.ViewPager>
-
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/left"
@@ -76,10 +72,12 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:background="#a0d7e5">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,10 +89,13 @@
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="top"
                     />
+
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
+
                 <ImageView
                     android:id="@+id/one"
                     android:layout_width="50dp"
@@ -103,6 +104,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/img_5" />
+
+
                 <Button
                     android:id="@+id/bodydataset"
                     android:layout_width="300dp"
@@ -115,10 +118,14 @@
                     android:gravity="left"
                     android:textSize="16sp"
                     android:text="身体数据设置" />
+
+
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
+
                 <ImageView
                     android:id="@+id/two"
                     android:layout_width="50dp"
@@ -127,6 +134,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/img_3" />
+
                 <Button
                     android:id="@+id/history"
                     android:layout_width="300dp"
@@ -140,9 +148,11 @@
                     android:gravity="left"
                     android:text="历史运动情况" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
+
                 <ImageView
                     android:id="@+id/three"
                     android:layout_width="50dp"
@@ -151,6 +161,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/img_4" />
+
                 <Button
                     android:id="@+id/count"
                     android:layout_width="300dp"
@@ -164,9 +175,11 @@
                     android:textSize="16sp"
                     android:text="运动统计" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
+
                 <ImageView
                     android:id="@+id/image_logout"
                     android:layout_width="50dp"
@@ -175,6 +188,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/process" />
+
                 <Button
                     android:id="@+id/logout"
                     android:layout_width="300dp"
@@ -191,3 +205,7 @@
         </LinearLayout>
     </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>
+
+
+
+

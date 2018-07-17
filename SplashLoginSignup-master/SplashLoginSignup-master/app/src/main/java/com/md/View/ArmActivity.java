@@ -1,5 +1,6 @@
 package com.md.View;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,13 +21,18 @@ public class ArmActivity extends AppCompatActivity {
         juanfu = (Button) findViewById(R.id.juanfu);
         baoshoujuanfu = (Button) findViewById(R.id.baoshoujuanfu);
         baoxi = (Button) findViewById(R.id.baoxi);
+        shena.setOnClickListener(new ActionOnClickListener());
     }
 
     class ActionOnClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            if(view == shena){
+            Intent intent = new Intent(ArmActivity.this,StartSpecifyActionActivity.class);
+            if(view.getId() == R.id.shena){
             //跳转，同时传递数据过去
+                System.out.println("俯卧撑");
+                intent.putExtra("fragment","shena");
+                startActivity(intent);
             }else if (view == baoshoujuanfu){
 
             }else if (view == juanfu){
@@ -34,6 +40,7 @@ public class ArmActivity extends AppCompatActivity {
             }else if (view == baoxi){
 
             }
+
         }
     }
 }
