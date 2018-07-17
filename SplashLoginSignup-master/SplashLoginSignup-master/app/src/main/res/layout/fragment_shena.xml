@@ -5,13 +5,51 @@
     android:layout_alignParentBottom="true"
     android:layout_alignParentStart="true"
     android:layout_marginBottom="0dp"
-    android:background="#FFFFFF"
+    android:background="#3B3B3B"
     tools:context="com.md.View.fragments.shenaFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <pl.droidsonroids.gif.GifImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/shena" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- TODO: Update blank fragment layout -->
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shena" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#656565"
+                android:text="动作要领:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#ffffff"
+                android:text="1.首先俯力先支撑，然后挺胸抬头，身体呈直线.\n2.然后开始慢慢下降。肘关节夹角呈 90 度以后开始回位.\n"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#656565"
+                android:text="姿势要领:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#ffffff"
+                android:text="1.头部到腰部的躯干要始终保持笔直伸展的状态，臀部要向身后撅起.\n2.结尾姿势：膝盖弯曲，直到大腿与地而平行为止"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="262dp"
+            android:src="@drawable/arm_muscle" />
+
+    </LinearLayout>
 
 </FrameLayout>

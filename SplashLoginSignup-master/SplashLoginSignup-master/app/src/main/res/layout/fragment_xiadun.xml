@@ -5,12 +5,51 @@
     android:layout_alignParentBottom="true"
     android:layout_alignParentStart="true"
     android:layout_marginBottom="0dp"
-    android:background="#ffffff"
+    android:background="#3B3B3B"
     tools:context="com.md.View.fragments.xiadunFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <pl.droidsonroids.gif.GifImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/xiadun" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- TODO: Update blank fragment layout -->
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xiadun" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#656565"
+                android:text="动作要领:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#ffffff"
+                android:text="1.往上推时候肩胛骨放松，下压时肩胛骨收紧五指分开，略向外.\n2.下压时注意沉肩，手臂与躯干夹角不要太大.\n"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#656565"
+                android:text="姿势要领:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#ffffff"
+                android:text="1.头、躯干、臀、腿在同一平面上.\n2.俯身固定好位置（伸直手情况下），此时肩膀要在手指上方"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="262dp"
+            android:src="@drawable/leg_muscle" />
+
+    </LinearLayout>
+
 </FrameLayout>

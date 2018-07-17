@@ -24,7 +24,8 @@
         <activity android:name="com.md.View.SpecifyActionActivity" />
         <activity android:name="com.md.View.ArmActivity" />
         <activity android:name="com.md.View.HipActivity" />
-        <activity android:name="com.md.View.StartSpecifyActionActivity"></activity>
+        <activity android:name="com.md.View.StartSpecifyActionActivity" />
+        <activity android:name="com.md.View.SpecifyActionDataActivity"></activity>
     </application>
 
 </manifest>
