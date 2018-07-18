@@ -84,6 +84,8 @@ public class LeftViewActivity extends AppCompatActivity implements ActionCountFr
                 }else if(view == count){
                     System.out.println("运动统计");
                     intent.putExtra("fragment","ActionCount");
+                }else{
+
                 }
                 startActivity(intent);
             }

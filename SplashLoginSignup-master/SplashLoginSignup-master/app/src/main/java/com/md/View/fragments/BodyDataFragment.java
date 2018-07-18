@@ -1,13 +1,18 @@
 package com.md.View.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.support.design.widget.TextInputEditText;
 
+import com.md.View.LeftViewActivity;
+import com.md.View.MainActivity;
 import com.md.splashloginsignup.R;
 
 /**
@@ -24,6 +29,16 @@ public class BodyDataFragment extends android.app.Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private Button submit;
+    private Button back;
+
+    private TextInputEditText height;
+    private TextInputEditText weight;
+    private TextInputEditText age;
+    private TextInputEditText sex;
+
+    private  View view;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -60,13 +75,25 @@ public class BodyDataFragment extends android.app.Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_body_data, container, false);
+        view = inflater.inflate(R.layout.fragment_body_data, container, false);
+        submit = (Button)view.findViewById(R.id.submit);
+        back = (Button)view.findViewById(R.id.back);
+
+        height = (TextInputEditText)view.findViewById(R.id.height);
+        weight = (TextInputEditText)view.findViewById(R.id.weight);
+        age = (TextInputEditText)view.findViewById(R.id.age);
+        sex = (TextInputEditText)view.findViewById(R.id.sex);
+
+        submit.setOnClickListener(new Mlistener());
+        back.setOnClickListener(new Mlistener());
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -106,5 +133,19 @@ public class BodyDataFragment extends android.app.Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    class Mlistener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent();
+            if(view == submit){
+                //跳转之前进行数据传输,提交用户数据
+                intent = new Intent(view.getContext(), MainActivity.class);
+            }else if(view == back){
+                intent = new Intent(view.getContext(), MainActivity.class);
+            }
+            startActivity(intent);
+        }
     }
 }
