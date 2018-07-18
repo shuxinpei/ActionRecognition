@@ -112,7 +112,7 @@
                     <pl.droidsonroids.gif.GifImageView
                         android:layout_width="100dp"
                         android:layout_height="102dp"
-                        android:src="@drawable/shena" />
+                        android:src="@drawable/xiadun" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="时间:10min30s"
+                        android:text="时间:30s"
                         android:layout_weight="1"
                         android:textSize="18dp" />
                 </LinearLayout>

@@ -5,9 +5,20 @@
     tools:context="com.md.View.fragments.ActionCountFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="运动统计" />
+        android:layout_below="@+id/title_bar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                />
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

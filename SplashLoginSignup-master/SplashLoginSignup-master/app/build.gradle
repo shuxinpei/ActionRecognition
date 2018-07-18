@@ -35,4 +35,5 @@ dependencies {
     implementation 'com.google.android:flexbox:1.0.0'
     implementation files('libs/nineoldandroids-2.4.0.jar')
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.14'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 }

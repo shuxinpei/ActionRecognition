@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/tabTop"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DAF7A6"
+        xmlns:android="http://schemas.android.com/apk/res/android" />
+    <LinearLayout
+        android:id="@+id/single_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/actionGif"
+            android:layout_width="100dp"
+            android:layout_height="102dp"
+            android:src="@drawable/shena" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/action_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="俯卧撑"
+                android:layout_weight="1"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/action_timeall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时长:10min30s"
+                android:layout_weight="1"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/action_energy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卡路里:154kj"
+                android:layout_weight="1"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/action_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间:2018-7-18"
+                android:layout_weight="1"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

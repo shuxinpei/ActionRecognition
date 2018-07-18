@@ -8,7 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.md.splashloginsignup.R;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +37,7 @@ public class HistoryActionFragment extends android.app.Fragment {
     private String mParam1;
     private String mParam2;
 
+    private View view ;
     private OnFragmentInteractionListener mListener;
 
     public HistoryActionFragment() {
@@ -66,7 +75,21 @@ public class HistoryActionFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history_action, container, false);
+        view = inflater.inflate(R.layout.fragment_history_action, container, false);
+        //图表
+        LineChart chart = (LineChart) view.findViewById(R.id.chart);
+        List<Entry> entries = new ArrayList<Entry>();
+        Random re= new Random();
+        for (int i=0;i<20;i++) {
+            // turn your data into Entry objects
+            entries.add(new Entry(re.nextFloat()+i,(float)(re.nextFloat()*10.0)));
+        }
+        LineDataSet dataSet = new LineDataSet(entries, "历史运动");
+        LineData lineData = new LineData(dataSet);
+        chart.setData(lineData);
+        chart.invalidate(); // refresh
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
