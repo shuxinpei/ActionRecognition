@@ -6,4 +6,128 @@
     android:layout_height="match_parent"
     tools:context="com.md.View.SpecifyActionDataActivity">
 
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/orange"
+            >
+            <ImageView
+                android:id="@+id/leftmenu"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"></ImageView>
+
+            <TextView
+                android:textColor="@color/edit_text_bg"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="Fitness" />
+        </RelativeLayout><!--标签栏Fitness-->
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="运动时长："
+                        android:textSize="18dp" />
+                    <TextView
+                        android:id="@+id/action_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="10min30s"
+                        android:textSize="18dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="卡路里预估消耗："
+                        android:textSize="18dp" />
+                    <TextView
+                        android:id="@+id/action_energy_consume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="1200kj"
+                        android:textSize="18dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="水分预估消耗："
+                        android:textSize="18dp" />
+                    <TextView
+                        android:id="@+id/action_water_consume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="120ml"
+                        android:textSize="18dp" />
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/tabTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DAF7A6" />
+                <LinearLayout
+                    android:id="@+id/arm1_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="100dp"
+                        android:layout_height="102dp"
+                        android:src="@drawable/shena" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="俯卧撑"
+                        android:layout_weight="1"
+                        android:textSize="18dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="时间:10min30s"
+                        android:layout_weight="1"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

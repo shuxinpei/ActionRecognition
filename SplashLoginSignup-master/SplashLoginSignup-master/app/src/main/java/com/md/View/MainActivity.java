@@ -80,6 +80,12 @@ public class MainActivity extends AppCompatActivity implements FreeActionFragmen
         history = (Button)findViewById(R.id.history);
         count = (Button)findViewById(R.id.count);
         logout = (Button)findViewById(R.id.logout);
+
+        bodydatast.setOnClickListener(new leftOnClickListener());
+        history.setOnClickListener(new leftOnClickListener());
+        count.setOnClickListener(new leftOnClickListener());
+        logout.setOnClickListener(new leftOnClickListener());
+
         mTextMessage = (TextView) findViewById(R.id.message);
         //需要改变样式的文本
         FreeAction = (TextView)findViewById(R.id.FreeAction);
@@ -117,6 +123,30 @@ public class MainActivity extends AppCompatActivity implements FreeActionFragmen
         @Override
         public int getCount() {
             return mFragments.size();
+        }
+    }
+    class leftOnClickListener implements OnClickListener{
+        @Override
+        public void onClick(View view) {
+            if(view == logout){
+                System.out.println("退出登录");
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                intent.putExtra("fragment","Bodydata");
+                startActivity(intent);
+            }else{
+                Intent intent = new Intent(MainActivity.this,LeftViewActivity.class);
+                if (view == bodydatast){
+                    System.out.println("身体数据");
+                    intent.putExtra("fragment","Bodydata");
+                }else if(view == history){
+                    System.out.println("历史运动");
+                    intent.putExtra("fragment","History");
+                }else if(view == count){
+                    System.out.println("运动统计");
+                    intent.putExtra("fragment","ActionCount");
+                }
+                startActivity(intent);
+            }
         }
     }
 }

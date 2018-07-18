@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.md.View.LeftViewActivity">
+
+    <RelativeLayout
+        android:id="@+id/fragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/orange"
+            >
+            <ImageView
+                android:id="@+id/leftmenu"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:src="@drawable/menu" />
+            <TextView
+                android:textColor="@color/edit_text_bg"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="Fitness" />
+        </RelativeLayout><!--标签栏Fitness-->
+        <FrameLayout
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="590dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="0dp"
+            android:background="#ffffff"></FrameLayout><!--中间空白-->
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/left"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#a0d7e5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src ="@drawable/logo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="top"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/one"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/img_5" />
+
+
+                <Button
+                    android:id="@+id/bodydataset"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/one"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_toRightOf="@+id/one"
+                    android:textColor="#f0f0f0"
+                    android:gravity="left"
+                    android:textSize="16sp"
+                    android:text="身体数据设置" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/two"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/img_3" />
+
+                <Button
+                    android:id="@+id/history"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/two"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_toRightOf="@+id/two"
+                    android:textColor="#f0f0f0"
+                    android:textSize="16sp"
+                    android:gravity="left"
+                    android:text="历史运动情况" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/three"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/img_4" />
+
+                <Button
+                    android:id="@+id/count"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/three"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_toRightOf="@+id/three"
+                    android:textColor="#f0f0f0"
+                    android:gravity="left"
+                    android:textSize="16sp"
+                    android:text="运动统计" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/image_logout"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/process" />
+
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/image_logout"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_toRightOf="@+id/image_logout"
+                    android:textColor="#f0f0f0"
+                    android:gravity="left"
+                    android:textSize="16sp"
+                    android:text="注销" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>
