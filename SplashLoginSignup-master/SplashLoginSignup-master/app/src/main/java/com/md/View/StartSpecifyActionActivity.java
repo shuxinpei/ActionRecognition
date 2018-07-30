@@ -14,6 +14,10 @@ import com.md.View.fragments.shenaFragment;
 import com.md.View.fragments.xiadunFragment;
 import com.md.splashloginsignup.R;
 
+import java.security.spec.ECField;
+
+import Util.DataHelpers.SensorRasp;
+
 public class StartSpecifyActionActivity extends AppCompatActivity implements shenaFragment.OnFragmentInteractionListener,xiadunFragment.OnFragmentInteractionListener {
     String fragment;
     Intent intent;
@@ -21,6 +25,11 @@ public class StartSpecifyActionActivity extends AppCompatActivity implements she
     Button start;
     Button Watchdata;
     boolean onclick = false;
+
+    Thread thread =new SensorRasp();
+    long startTime;
+    long endTime;
+    long time;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +43,21 @@ public class StartSpecifyActionActivity extends AppCompatActivity implements she
                 if(!onclick){
                     onclick = true;
                     start.setText("暂停运动");
+                    endTime = System.currentTimeMillis();
+                    SensorRasp.getAlldatas();
+                    try {
+                        thread.sleep(500);
+                        thread.wait();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }else{
                     onclick = false;
                     start.setText("开始运动");
+                    startTime = System.currentTimeMillis();
+                    thread = new SensorRasp();
+                    thread.start();
+
                 }
             }
         });
@@ -45,7 +66,12 @@ public class StartSpecifyActionActivity extends AppCompatActivity implements she
             @Override
             public void onClick(View view) {
                 if(!onclick){
-                startActivity(new Intent(StartSpecifyActionActivity.this,SpecifyActionDataActivity.class));
+                    Intent intent =new Intent(StartSpecifyActionActivity.this,SpecifyActionDataActivity.class);
+                    intent.putExtra("time",endTime-startTime);
+                    System.out.println(SensorRasp.count);
+                    System.out.println(SensorRasp.energy);
+                    System.out.println(time);
+                    startActivity(intent);
                 //发送数据
                 }else {
                     Toast.makeText(StartSpecifyActionActivity.this, "请先结束运动", Toast.LENGTH_SHORT).show();
