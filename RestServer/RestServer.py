@@ -5,6 +5,9 @@ import random
 import math
 import json
 import pymysql
+from DBUtil import User, Action, Bodydata
+import DBUtil
+from actionUtil import calActions
 
 app = Flask(__name__)
 api = Api(app)
@@ -20,14 +23,19 @@ class Regist(Resource):
         self.reqparse.add_argument('username', type = str, required = True, help = 'No username', location = 'json')
         self.reqparse.add_argument('password', type = str, required = True, location = 'json')
         super(Regist, self).__init__()
-
+    #get注册用户
     def get(self):
         username = request.args.get('username')
         password = request.args.get('password')
-        #数据库的用户ID
-        #注册以后生成用户ID
-        userId = random.randint(0,math.pow(10,16))
-        return {'username': username, "password" : password ,"userId" : userId }
+        #数据库查询是否拥有相同用户名的
+        user = DBUtil.queryUser(username)
+        if user:
+            return {"msg":"error","userId":00000}
+        else:
+            userId = random.randint(0, math.pow(10, 16))
+            user = User(userId, username, password)
+            #注册以后生成用户ID
+            return {'msg': "success", "userId" :userId}
 
 #用户登录api
 class Login(Resource):
@@ -40,8 +48,11 @@ class Login(Resource):
     def get(self):
         username = request.args.get('username')
         password = request.args.get('password')
-        userId = 123456 #这个要在数据库里面得到
-        return {'username': username, "password" : password ,"userId" : userId}
+        user = DBUtil.queryUser(username)
+        if user.Password == password:
+            return {"msg":"success", "userId" :user.UserId}
+        else:
+            return {"msg":"error", "userId":00000}
 
 #特定动作,从客户端传输过来的数据需要是：用户ID，动作类别，运动时长,以及运动数据
 #运动数据使用@来分割一个时间段，使用，分割每一个传感器的数据
@@ -49,43 +60,76 @@ class Login(Resource):
 class Action(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('userId', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('time', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('actionCate', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('actiondata', type = str, required = True, location = 'json')
+
+        self.reqparse.add_argument('userId', type = int, required = True, location = 'json')
+        self.reqparse.add_argument('date', type=int, required=True, location='json')
+        self.reqparse.add_argument('time', type=int, required=True, location='json')
+
+        self.reqparse.add_argument('actionCate', type = int, required = False, location = 'json')
+        self.reqparse.add_argument('number', type = int, required = False, location = 'json')
+        self.reqparse.add_argument('standnumber', type = int, required = False, location = 'json')
+        self.reqparse.add_argument('energy', type = int, required = False, location = 'json')
+        self.reqparse.add_argument('water', type = int, required = False, location = 'json')
+
+        #动作数据
+        self.reqparse.add_argument('data', type=str, required=False, location='json')
 
         super(Action, self).__init__()
 
     def get(self):
         userId= request.args.get('userId')
         time = request.args.get('time')
-        actionCate = request.args.get('actionCate')
-        actiondata = request.args.get('actiondata')
+        date = request.args.get("date")
+
+        actiondata = request.args.get('data')
+        #先为动作生成ID，自由运动与特定动作分开处理
+        actionId = random.randint(0, math.pow(10, 16))
         #将数据存在dataArray中
-        dataArray = []
-        list = actiondata.split("@");
-        for str in list:
-            chlist = str.split(",")
-            dataArray.append(chlist)
-        for data in dataArray:
-            print(data)
-        #调用执行脚本进行姿态解算以及能量消耗的预估
+        if actiondata:# 自由运动
+            dataArray = []
+            list = actiondata.split("@");
+            for str in list:
+                chlist = str.split(",")
+                dataArray.append(chlist)
+            for data in dataArray:
+                print(data)
+            #调用封装好的进行动作计算,返回一个动作的列表,将除了动作的类别，时间，能量，水分以外的数据都进行设置
+            actionList = calActions(dataArray)
+            resultJson = ""
+            for actionRes in actionList:
+                actionRes.UserId = userId
+                actionRes.actionId = random.randint(0, math.pow(10, 16))
+                #actionCate 计算出
+                #number 计算出
+                #standnumber 计算出
+                #energy 计算出
+                #water 计算出
+                actionRes.date = date
+                #time 计算出来
+                str =
+#特定动作的返回暂放，之后测试一下，服务器端就完成了
+            # 返回结果
+            return {"msg":"success","result":}
+            #拼装json
 
-        #返回结果
+            # 保存数据
 
-        #保存数据
+        #调用执行脚本进行姿态解算以及能量消耗的预估,特定动作使用数字进行标定，自由运动不使用数字进行标定
+        else:
+            return {"msg":"error"}
 
-        return {"userId": userId, "time": time,"actionCate": actionCate, "actiondata": actiondata}
 
 class SpecifyAction(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('userId', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('actionCate', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('number', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('standnumber', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('energy', type = str, required = True, location = 'json')
-        self.reqparse.add_argument('water', type = str, required = True, location = 'json')
+        self.reqparse.add_argument('userId', type = int, required = True, location = 'json')
+        self.reqparse.add_argument('actionCate', type = int, required = True, location = 'json')
+        self.reqparse.add_argument('number', type = int, required = True, location = 'json')
+        self.reqparse.add_argument('standnumber', type = int, required = True, location = 'json')
+        self.reqparse.add_argument('energy', type = int, required = True, location = 'json')
+        self.reqparse.add_argument('water', type = int, required = True, location = 'json')
+        self.reqparse.add_argument('date', type=int, required=True, location='json')
+        self.reqparse.add_argument('time', type=int, required=True, location='json')
 
         super(SpecifyAction, self).__init__()
 
@@ -96,18 +140,17 @@ class SpecifyAction(Resource):
         standnumber = request.args.get('standnumber')
         energy = request.args.get('energy')
         water = request.args.get('water')
+        date = request.args.get("date")
+        time = request.args.get("time")
         #生成动作ID
         #保存在数据库中
         actionId = random.randint(0,math.pow(10,16))
-        return {
-                "userId": userId,
-                "actionId" : actionId,
-                "actionCate" : actionCate,
-                "number" : number,
-                "standnumber" : standnumber,
-                "energy" : energy,
-                "water" : water
-        }
+        if (actionCate == "1" | "2" | "3" | "4" | "5" | "6"):
+            action = Action(userId, actionId, actionCate, number, standnumber, energy, water,date, time)
+            return {"msg": "success", "actionId": actionId}
+        else:
+            # 出错
+            return {"msg": "error", "actionId": 00000}
 
 api.add_resource(Login, '/login')
 api.add_resource(Regist,"/regist")

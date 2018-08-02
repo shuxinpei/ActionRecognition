@@ -49,6 +49,9 @@ class Action(db.Model):
         self.date = date
         self.time = time
 
+    def __lt__(self, other):
+        return self.date < other.date
+
 class Bodydata(db.Model):
     __tablename__ = 'bodydata'
 
@@ -100,19 +103,12 @@ def insertAction( UserId, actionId, actionCate, number, standnumber, energy, wat
     action = Action(UserId, actionId, actionCate, number, standnumber, energy, water, date, time)
     db.session.add(action)
     db.session.commit()
-#查找最新的动作
+#查找最新的动作,使用时间进行排序，因为使用时间进行排序
 def queryLatestAction(UserId):
-    action =  Action.query.filter_by(UserId=UserId).first()
-    return action
+    action = Action.query.filter_by(UserId = UserId).all()
+    action.sort()
+    return action[-1]
 #查找该用户所有的动作
 def queryAllAction(UserId):
     actionList = Action.query.filter_by(UserId = UserId).all()
     return actionList
-
-insertAction("123456789","189123","2","10","8","12345","123","201878","20")
-insertAction("123456789","111111111","2","10","8","11111","11111","201111878","20")
-action = queryLatestAction("123456789")
-print(str(action.UserId)+" "+str(action.number)+str(action.energy))
-actions = queryAllAction("123456789")
-for action in actions:
-    print(str(action.UserId) + " " + str(action.number) + str(action.energy))
