@@ -111,11 +111,7 @@
                     android:layout_marginStart="@dimen/divider_start_and_end_margins"
                     android:layout_toEndOf="@id/divider_or"
                     android:background="@color/divider" />
-
-
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:id="@+id/sign_up_nav"

@@ -12,7 +12,7 @@
 
 
     <!--Button labels-->
-    <string name="login_btn_label">登录</string>
+    <string name="login_btn_label">登录 | 注册</string>
     <string name="signup_btn_label">注册</string>
 
     <string name="login_label">" 登录"</string>
