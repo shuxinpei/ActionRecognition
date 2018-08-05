@@ -64,13 +64,6 @@ class Action(Resource):
         self.reqparse.add_argument('userId', type = int, required = True, location = 'json')
         self.reqparse.add_argument('date', type=int, required=True, location='json')
         self.reqparse.add_argument('time', type=int, required=True, location='json')
-
-        self.reqparse.add_argument('actionCate', type = int, required = False, location = 'json')
-        self.reqparse.add_argument('number', type = int, required = False, location = 'json')
-        self.reqparse.add_argument('standnumber', type = int, required = False, location = 'json')
-        self.reqparse.add_argument('energy', type = int, required = False, location = 'json')
-        self.reqparse.add_argument('water', type = int, required = False, location = 'json')
-
         #动作数据
         self.reqparse.add_argument('data', type=str, required=False, location='json')
 
@@ -97,24 +90,8 @@ class Action(Resource):
             actionList = calActions(dataArray)
             resultJson = ""
             for actionRes in actionList:
-                actionRes.UserId = userId
-                actionRes.actionId = random.randint(0, math.pow(10, 16))
-                #actionCate 计算出
-                #number 计算出
-                #standnumber 计算出
-                #energy 计算出
-                #water 计算出
-                actionRes.date = date
-                #time 计算出来
-                str =
-#特定动作的返回暂放，之后测试一下，服务器端就完成了
-            # 返回结果
-            return {"msg":"success","result":}
-            #拼装json
-
-            # 保存数据
-
-        #调用执行脚本进行姿态解算以及能量消耗的预估,特定动作使用数字进行标定，自由运动不使用数字进行标定
+                resultJson+= "@"+userId+"#"+str(actionRes.actionId)+"#"+str(actionRes.actionCate)+"#"+str(actionRes.number)+"#"+str(actionRes.standnumber)+"#"+str(actionRes.energy)+"#"+str(actionRes.water)+"#"+str(actionRes.data)+"#"+str(actionRes.time)
+            return {"msg":"success","result":resultJson}
         else:
             return {"msg":"error"}
 
