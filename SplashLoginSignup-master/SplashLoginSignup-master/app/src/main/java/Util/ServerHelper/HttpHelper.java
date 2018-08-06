@@ -17,7 +17,7 @@ public class HttpHelper {
      */
     public static String loginByGet(String username,String password){
         //get的方式提交就是url拼接的方式
-        String path = "http://172.16.168.111:1010/login.php?username="+username+"&password="+password;
+        String path = "http://127.0.0.1:5000/login?username="+username+"&password="+password;
         try {
             URL url = new URL(path);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -42,13 +42,35 @@ public class HttpHelper {
         }
         return null;
     }
-    /** * post的方式请求
-     *@param username 用户名
-     *@param password 密码
-     *@return 返回null 登录异常
-     */
+
+    public static String RegistByGet(String username,String password){
+        String path = "http://127.0.0.1:5000/regist?username="+username+"&password="+password;
+        try {
+            URL url = new URL(path);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.setRequestMethod("GET");
+            //获得结果码
+            int responseCode = connection.getResponseCode();
+            if(responseCode ==200){
+                //请求成功 获得返回的流
+                InputStream is = connection.getInputStream();
+                return IOSUtil.inputStream2String(is);
+            }else {
+                //请求失败
+                return null;
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static String RegistByPost(String username,String password){
-        String path = "http://172.16.168.111:1010/login.php";
+        String path = "http://127.0.0.1:5000/regist";
         try {
             URL url = new URL(path);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -70,6 +92,7 @@ public class HttpHelper {
             int responseCode = connection.getResponseCode();
             if(responseCode ==200){
                 //请求成功
+                System.out.println("成功");
                 InputStream is = connection.getInputStream();
                 return IOSUtil.inputStream2String(is);
             }else {
@@ -84,5 +107,9 @@ public class HttpHelper {
             e.printStackTrace();
         }
         return null;
+    }
+    public static void main(String [] arg){
+        String str = HttpHelper.RegistByGet("zhouzhiming","shuxin123");
+        System.out.println(str);
     }
 }
