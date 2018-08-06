@@ -1,14 +1,7 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 import config
-
-databaseurl = 'mysql+pymysql://%s:%s@%s:%s/%s' % (
-config.MYSQL_USER, config.MYSQL_PASS, config.MYSQL_HOST, config.MYSQL_PORT, config.MYSQL_DB)
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = databaseurl
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-db = SQLAlchemy(app)
+from config import db
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -68,8 +61,6 @@ class Bodydata(db.Model):
         self.sex = sex
         self.age = age
 
-db.create_all()
-
 #新增用户
 def insertUser(UserId, UserName, Password):
     user = User(UserId, UserName, Password)
@@ -112,3 +103,4 @@ def queryLatestAction(UserId):
 def queryAllAction(UserId):
     actionList = Action.query.filter_by(UserId = UserId).all()
     return actionList
+
