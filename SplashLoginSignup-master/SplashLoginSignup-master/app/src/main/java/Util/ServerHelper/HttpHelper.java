@@ -1,5 +1,7 @@
 package Util.ServerHelper;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -7,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-
+import org.json.simple.parser
 public class HttpHelper {
     /**
      *get的方式请求
@@ -108,8 +110,15 @@ public class HttpHelper {
         }
         return null;
     }
-    public static void main(String [] arg){
+
+    public static void main(String [] arg) throws Exception{
         String str = HttpHelper.RegistByGet("zhouzhiming","shuxin123");
+        //JSONObject jsonObj = new JSONObject(str);
         System.out.println(str);
+        JSONObject jsonObj = new JsonParser().parse(jsonString).getAsJsonObject();
+
+        JSONParser parser = new JSONParser();
+        JSONObject json = (JSONObject) parser.parse(stringToParse);
+
     }
 }
