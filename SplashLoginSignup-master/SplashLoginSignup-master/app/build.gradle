@@ -37,4 +37,5 @@ dependencies {
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.14'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     implementation files('libs/json-20180130.jar')
+    implementation files('src/main/java/Util/donny/CommonUtils.jar')
 }
