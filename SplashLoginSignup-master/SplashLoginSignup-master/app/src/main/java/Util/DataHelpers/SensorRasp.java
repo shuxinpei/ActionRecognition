@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-
+//识别动作的能量的
 public class SensorRasp extends Thread{
 
     public static List data = new ArrayList();
